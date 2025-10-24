@@ -1,6 +1,7 @@
 parameters: {}
 environment:
-  API_KEY: ${API_KEY}
+  GENAI_API_KEY: ${GENAI_API_KEY}
+  TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
 packages:
     - name: meal
       shared: false
