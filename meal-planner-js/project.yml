@@ -1,0 +1,23 @@
+parameters: {}
+environment:
+  GENAI_API_KEY: ${GENAI_API_KEY}
+  TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+  CHAT_ID: ${CHAT_ID}
+packages:
+    - name: meal
+      shared: false
+      environment: {}
+      parameters: {}
+      annotations: {}
+      functions:
+        - name: plan
+          binary: false
+          main: ""
+          runtime: nodejs:18
+          web: true
+          webSecure: false
+          parameters: {}
+          environment: {}
+          annotations: {}
+          limits:
+            timeout: 180000

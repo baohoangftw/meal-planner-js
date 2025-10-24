@@ -1,0 +1,7 @@
+{
+  "main": "index.js",
+  "type": "module",
+  "dependencies" : {
+    "@google/genai" : "1.26.0"
+  }
+}
