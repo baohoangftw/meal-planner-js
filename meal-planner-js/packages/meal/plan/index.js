@@ -2,11 +2,19 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GENAI_API_KEY });
 
+const DEFAULT_PROMPT = `Lên kế hoạch bữa ăn cho tuần tới với các món ăn Việt Nam miền Bắc, Trung, Nam và món người Hoa. Khẩu vị miền Bắc. Đảm bảo các món ăn đa dạng và cân bằng dinh dưỡng. Bao gồm bữa trưa và bữa tối cho mỗi ngày trong tuần. Trong tuần có 2 bữa là cháo, mì, bún, miến, phở hoặc bánh mặn; các bữa còn lại là cơm trắng kèm các món canh, mặn và xào. Trình bày thành thành từng đoạn văn dễ đọc, mỗi ngày một đoạn, mỗi bữa một gạch đầu dòng. Có lời chào đầu tuần và giới thiệu ngắn. Không giải thích. Không nhắc lại khẩu vị và cách nêm nếm. Không dùng Markdown.`;
+
+function getAIPrompt() {
+  return process.env.AI_PROMPT || DEFAULT_PROMPT;
+}
+
 export async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: "Lên kế hoạch bữa ăn cho tuần tới với các món ăn Việt Nam miền Bắc, Trung, Nam và món người Hoa. Khẩu vị miền Bắc. Đảm bảo các món ăn đa dạng và cân bằng dinh dưỡng. Bao gồm bữa trưa và bữa tối cho mỗi ngày trong tuần. Trong tuần có 2 bữa là cháo, mì, bún, miến, phở hoặc bánh mặn; các bữa còn lại là cơm trắng kèm các món canh, mặn và xào. Trình bày thành thành từng đoạn văn dễ đọc, mỗi ngày một đoạn, mỗi bữa một gạch đầu dòng. Có lời chào đầu tuần và giới thiệu ngắn. Không giải thích. Không nhắc lại khẩu vị và cách nêm nếm. Không dùng Markdown.",
-  });
+  const request = {
+    model: process.env.AI_MODEL || "gemini-3.5-flash",
+    contents: getAIPrompt(),
+  };
+
+  const response = await ai.models.generateContent(request);
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatIdRaw = process.env.CHAT_ID;
