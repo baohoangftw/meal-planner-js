@@ -13,8 +13,8 @@ packages:
         - name: plan
           binary: false
           main: ""
-          runtime: nodejs:18
-          web: true
+          runtime: nodejs:24
+          web: false
           webSecure: false
           parameters: {}
           environment: {}

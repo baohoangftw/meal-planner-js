@@ -1,0 +1,14 @@
+{
+  "features": {
+    "ghcr.io/devcontainers-extra/features/digitalocean-cli:1": {
+      "version": "1.0.4",
+      "resolved": "ghcr.io/devcontainers-extra/features/digitalocean-cli@sha256:663db259e0804eeb924cb973aba99e9a1028e778cc5ce994ea9d1182a34f7983",
+      "integrity": "sha256:663db259e0804eeb924cb973aba99e9a1028e778cc5ce994ea9d1182a34f7983"
+    },
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "2.1.0",
+      "resolved": "ghcr.io/devcontainers/features/node@sha256:586c9a6f7dd40bd3ba2cd41e7f2f88dcc31fbe5d1442afcbf07ffbc66b686857",
+      "integrity": "sha256:586c9a6f7dd40bd3ba2cd41e7f2f88dcc31fbe5d1442afcbf07ffbc66b686857"
+    }
+  }
+}
